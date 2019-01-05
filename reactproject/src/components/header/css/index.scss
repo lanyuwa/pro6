@@ -1,0 +1,38 @@
+.head {
+    position:sticky;
+    top:0;
+    left:0;
+    display: flex;
+    height:0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 0.28rem;
+    background: #f2f2f2;
+    .h_logo{
+        width:0.50rem;
+        height:0.32rem;
+        img{
+            width:100%;
+            height:100%;
+        }
+    }
+    .h_search{
+        display: flex;
+        align-items: center;
+        width:5.38rem;
+        height:0.64rem;
+        border:1px solid #e5e5e5;
+        background-color: #fff;
+        border-radius: .04rem;
+        text-indent: 0.18rem;
+        span{
+            font-size:0.3rem;
+            color: rgba(0,0,0,.3);
+        }
+    }
+    .h_user{
+        width:0.5rem;
+        height:0.5rem;
+        font-size: 0.45rem;
+    }
+}

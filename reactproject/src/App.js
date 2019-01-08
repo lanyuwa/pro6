@@ -1,21 +1,37 @@
 import React, {Component} from 'react';
 import "./common/css/index.css"
-import Head from "./components/header"
-import Banner from "./components/banner"
-import Category from "./components/category"
-import Recommend from "./components/recommend"
-import Conference from "./components/conference"
+import routes from "./router/index"
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from "react-router-dom"
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <Head/>
-                <Banner/>
-                <Category/>
-                <Recommend/>
-                <Conference/>
-            </div>
+            <Router>
+                <Switch>
+                    {
+                        routes.length>0&&routes.map((item,index)=>{
+                            if(item.exact) return (
+                                <Route
+                                    key={index}
+                                    exact
+                                    path={item.path}
+                                    component={item.component}
+                                />
+                            );
+                            return (
+                                <Route
+                                    key={index}
+                                    {...item}
+                                />
+                            )
+                        })
+                    }
+                </Switch>
+            </Router>
         );
     }
 }

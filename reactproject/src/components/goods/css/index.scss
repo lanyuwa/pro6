@@ -1,0 +1,48 @@
+.goods{
+  width:100%;
+  margin-top:0.18rem;
+  .topShop{
+    width:100%;
+    height:4.63rem;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .shopList{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width:100%;
+    margin-top:0.05rem;
+  }
+  li{
+    width:3.72rem;
+    img{
+      display: block;
+      width:3.72rem;
+      height:3.72rem;
+    }
+    .text{
+      padding:0.25rem;
+      .title{
+        font-size:0.30rem;
+        color:#000;
+      }
+      .describe{
+        font-size:0.26rem;
+        color:#8f8f8f;
+      }
+      .price{
+        font-size:0.28rem;
+        color:#eb6a64;
+        span{
+          margin-left:0.05rem;
+          color:#8f8f8f;
+          text-decoration: line-through;
+          font-size:0.26rem;
+        }
+      }
+    }
+  }
+}

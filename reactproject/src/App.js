@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./common/css/index.css"
 import routes from "./router/index"
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Switch
 } from "react-router-dom"
@@ -10,7 +10,7 @@ import {
 class App extends Component {
     render() {
         return (
-            <Router>
+            <Router basename={"react"}>
                 <Switch>
                     {
                         routes.length>0&&routes.map((item,index)=>{

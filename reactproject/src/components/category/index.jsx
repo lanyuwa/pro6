@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import "./css/index.scss"
+import {NavLink} from "react-router-dom";
 
 class Category extends Component {
     state={
@@ -21,9 +22,9 @@ class Category extends Component {
                 {
                     data.status===200&&data.data.map((item,index)=>{
                         return(
-                            <a href="/" key={item.id}>
+                            <NavLink to={`/shopDetail/${item.shopid}`} key={item.id}>
                                 <img src={item.picurl} alt="item.url"/>
-                            </a>
+                            </NavLink>
                         )
                     })
                 }

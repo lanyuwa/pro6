@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import "./css/index.scss"
+import {NavLink} from "react-router-dom"
 
 class Conference extends Component {
     state = {
@@ -23,7 +24,9 @@ class Conference extends Component {
                 <a href="/">
                     {
                         data.shopid&&(
-                            <img src={data.picurl} alt={data.alt}/>
+                            <NavLink to={`/shopDetail/${data.shopid}`}>
+                                <img src={data.picurl} alt={data.alt}/>
+                            </NavLink>
                         )
                     }
                 </a>

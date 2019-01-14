@@ -6,17 +6,28 @@ import Recommend from "../recommend";
 import Conference from "../conference";
 import Goods from "../goods";
 import Tabbar from "../tabbar";
+import LazyLoad from "react-lazyload"
 
 class Home extends Component {
     render() {
         return (
-            <div className="App">
+            <div className={"App"}>
                 <Head/>
-                <Banner/>
-                <Category/>
-                <Recommend/>
-                <Conference/>
-                <Goods/>
+                <LazyLoad height={200} once>
+                    <Banner/>
+                </LazyLoad>
+                <LazyLoad height={200} once>
+                    <Category/>
+                </LazyLoad>
+                <LazyLoad height={200} once>
+                    <Recommend/>
+                </LazyLoad>
+                <LazyLoad height={200} once>
+                    <Conference/>
+                </LazyLoad>
+                <LazyLoad height={200} once>
+                    <Goods/>
+                </LazyLoad>
                 <Tabbar/>
             </div>
         );

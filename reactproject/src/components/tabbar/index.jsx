@@ -3,9 +3,34 @@ import "./css/index.scss"
 import {
     NavLink
 } from "react-router-dom"
+import {connect} from "react-redux"
 
 class Tabbar extends Component {
+    state = {
+        totalNum:0
+    };
+    componentDidMount() {
+        this.getLocalData();
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            totalNum:nextProps.total
+        });
+    }
+    getLocalData=()=>{
+        let localData = this.props.shop.cartCount;
+        let totalNum = 0;
+        for(let key in localData){
+            if(!isNaN(key)){
+                totalNum += localData[key];
+            }
+        }
+        this.setState({
+            totalNum
+        })
+    };
     render() {
+        let {totalNum} = this.state;
         return (
             <div className={"tabbar"}>
                 <ul>
@@ -23,7 +48,12 @@ class Tabbar extends Component {
                     </li>
                     <li>
                         <NavLink to="/shopCart">
-                            <i className={"iconfont icon-xiazai1"}/>
+                            {
+                                totalNum>0&&(
+                                    <span className={"totalNum"}>{totalNum}</span>
+                                )
+                            }
+                            <i className={"iconfont icon-gouwuche1"}/>
                             <p>购物车</p>
                         </NavLink>
                     </li>
@@ -38,5 +68,9 @@ class Tabbar extends Component {
         );
     }
 }
-
+const mapStateToProps = (state)=>{
+    return {shop:state}
+};
+const mapDispatchToProps = {};
+Tabbar = connect(mapStateToProps,mapDispatchToProps)(Tabbar);
 export default Tabbar;

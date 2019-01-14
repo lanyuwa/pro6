@@ -21,17 +21,12 @@ class Goods extends Component {
         const data = this.state.data;
         return (
             <div className="goods">
-                <div className="topShop">
-                    <a>
-                        <img src={require("./img/topshop.jpg")} alt=""/>
-                    </a>
-                </div>
                 <ul className="shopList">
                     {
                         data.status===200&&data.data.map((item,index)=>{
                             return(
                                 <li key={item.id}>
-                                    <NavLink to={"/shopDetail"}>
+                                    <NavLink to={`/shopDetail/${item.shopid}`}>
                                         <img src={item.picurl} alt={item.alt}/>
                                         <div className="text">
                                             <p className="title">{item.title}</p>

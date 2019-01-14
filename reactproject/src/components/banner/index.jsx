@@ -11,7 +11,7 @@ class Banner extends Component {
         data:{}
     };
     bannerAction = ()=>{
-        let mySwiper = new Swiper ('.swiper-container', {
+        new Swiper ('.swiper-container', {
             pagination: {
                 el: '.swiper-pagination',
             },
@@ -40,7 +40,7 @@ class Banner extends Component {
                         data.status===200&&data.data.map((item,index)=>{
                             return(
                                 <div key={item.id} className={"swiper-slide"}>
-                                    <NavLink to={"/shopDetail"}>
+                                    <NavLink to={`/shopDetail/${item.shopid}`}>
                                         <img src={item.picurl} alt="item.alt"/>
                                     </NavLink>
                                 </div>
